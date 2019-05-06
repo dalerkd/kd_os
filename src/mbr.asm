@@ -6,6 +6,8 @@ SECTION MBR vstart=0x7c00
 	mov fs,ax
 	mov sp,0x7c00
 	
+	
+	
 	; 清屏
 	mov ax,0x600
 	mov bx,0x700
@@ -18,13 +20,26 @@ SECTION MBR vstart=0x7c00
 	mov bh,0
 	int 0x10
 	
-	; 打印字符串	
-	mov ax,message
-	mov bp,ax
-	mov cx,0x1F ;字符长度
-	mov ax,0x1301
-	mov bx,0x2  ;color
-	int 0x10
+	; 直接操作显存 来打字 ,背景绿, 前景红,跳动的1 MBR
+	mov ax,0xb800
+	mov gs,ax   ;gs段也是可以寻址显存的...
+	
+	mov byte [gs:0x00],'1'
+	mov byte [gs:0x01],0xA4
+	
+	mov byte [gs:0x02],' '
+	mov byte [gs:0x03],0xA4
+	
+	mov byte [gs:0x04],'M'
+	mov byte [gs:0x05],0xA4
+	
+	mov byte [gs:0x06],'B'
+	mov byte [gs:0x07],0xA4
+	
+	mov byte [gs:0x08],'R'
+	mov byte [gs:0x09],0xA4
+	
+	
 	
 	jmp $
 	
