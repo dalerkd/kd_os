@@ -1,3 +1,3 @@
-nasm -I include\ -o mbr.bin mbr.asm
-nasm -I include\ -o loader.bin loader.asm
+nasm -I include\ -o mbr.bin mbr.S
+nasm -I include\ -o loader.bin loader.S
 pause

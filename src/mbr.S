@@ -41,10 +41,11 @@ SECTION MBR vstart=0x7c00
 	
 	mov byte [gs:0x08],'R'
 	mov byte [gs:0x09],0xA4
+	
 	; 调用loader读取函数
 	mov eax,LOADER_START_SECTOR
 	mov bx,LOADER_BASE_ADDR
-	mov cx,1
+	mov cx,4
 	call rd_disk_m_16
 	
 	jmp LOADER_BASE_ADDR
