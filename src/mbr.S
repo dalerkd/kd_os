@@ -55,6 +55,7 @@ rd_disk_m_16:
 	;1. 设置读取的扇区数
 	mov esi,eax
 	mov di, cx
+	mov al, cl
 	mov dx, 0x1f2
 	out dx,al
 	
