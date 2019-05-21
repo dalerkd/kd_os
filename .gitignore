@@ -2,4 +2,7 @@ hd60M.img
 *.log
 *.bin
 *.exe
-
+*.img
+*.lock
+*.o
+*.O
